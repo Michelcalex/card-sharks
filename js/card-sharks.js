@@ -9,6 +9,7 @@ console.log('I am working!');
 
 window.addEventListener('load', function() {
     getCards();
+    gameButtons();
 });
 
 
@@ -26,9 +27,31 @@ function getCards() {
             imageHolder.src = response.cards[i].image;
             cardContainer.appendChild(imageHolder);
         }
+
+        for(let i = 0; i < 4; i++) {
+            if (i < 4) {
+                let backOfCard = document.createElement('div');
+                backOfCard.classList.add('backCard');
+                cardContainer.appendChild(backOfCard);
+            }
+        }
     });
 
     request.send();
+}
+
+
+
+function gameButtons() {
+    let higherBtn = document.querySelector('#higher');
+    higherBtn.addEventListener('click', function() {
+        console.log('I think its higher');
+    });
+
+    let lowerBtn = document.querySelector('#lower');
+    lowerBtn.addEventListener('click', function() {
+        console.log('I think its lower');
+    });
 }
 
 
