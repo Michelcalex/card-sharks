@@ -29,19 +29,40 @@ function drawCard(isHigher) {
          if(currentRoundDrawn === 0) {
             currentCardValue = cardValues.indexOf(response.cards[0].value)
             console.log(currentCardValue);
-        } else if (isHigher === true) {
-            if (currentCardValue < cardValues.indexOf(response.cards[0].value)) {
-                currentCardValue = cardValues.indexOf(response.cards[0].value)
+         } else if (currentRoundDrawn === 4){
+            if(isHigher === true) {
+                if(currentCardValue < cardValues.indexOf(response.cards[0].value)){
+                    alert('YOU WIN!');
+                    //console.log('game over - you won!');
+                } else {
+                    alert('So close...You Loose! Game over');
+                    //console.log('you lost on the last cad');
+                }
+            } else if (isHigher === false) {
+                if(currentCardValue > cardValues.indexOf(response.cards[0].value))
+                alert('YOU WIN!');
+                //console.log('game over - you won');
             } else {
-                alert('game over');
-            }  
-        } else if (isHigher === false) {
-            if(currentCardValue > cardValues.indexOf(response.cards[0].value)) {
-                currentCardValue = cardValues.indexOf(response.cards[0].value)
-            } else {
-                alert('you are wrong');
-            }   
-        }
+                alert('So close..You Loose! - Game over!');
+                //console.log('you lost on the last card');
+            }
+         } else if (currentRoundDrawn !== 4) {
+            if(isHigher === true) {
+                if(currentCardValue < cardValues.indexOf(response.cards[0].value)){
+                   currentCardValue = cardValues.indexOf(response.cards[0].value)
+                } else {
+                    alert('Game Over');
+                    //console.log('you lose BEFORE the last round');
+                }
+            } else if (isHigher === false) {
+                if (currentCardValue > cardValues.indexOf(response.cards[0].value)){
+                   currentCardValue = cardValues.indexOf(response.cards[0].value)
+                } else {
+                    alert('Game Over');
+                    //console.log('game over, you lost before the last round');
+                }  
+            }
+         }
     
         currentRoundDrawn++;
     });
@@ -76,3 +97,14 @@ function lowerButton() {
 }
 
 
+//FUNCTION TO SHOW BACK OF CARDS
+// function backOfCards() {
+//     for(let i = 0; i < 4; i++) {
+//             if (i < 4) {
+//                 let backOfCard = document.createElement('div');
+//                 backOfCard.classList.add('backCard' + i);
+//                 backOfCard.classList.add('backCard');
+//                 cardContainer.appendChild(backOfCard);
+//             }
+//         }
+// }
