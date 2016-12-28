@@ -12,12 +12,11 @@ let currentCardValue = 0;
 let currentRoundDrawn = 0;
 
 
-
-
 //When page load, do this
 window.addEventListener('load', function() {
    drawCard();
    higherButton();
+   lowerButton();
 });
 
 
@@ -25,14 +24,10 @@ function drawCard(isHigher) {
     let request = new XMLHttpRequest();
     request.open('GET', 'https://deckofcardsapi.com/api/deck/new/draw/?count=1');
     request.addEventListener('load', function () {
-        // console.log('The first GET is working');
-        if(currentRoundDrawn === 0) {
-            let response = JSON.parse(request.responseText);
-            // console.log('Response is through');
-            showCards(response.cards[0]);
+         let response = JSON.parse(request.responseText);
+         showCards(response.cards[0]);
+         if(currentRoundDrawn === 0) {
             currentCardValue = cardValues.indexOf(response.cards[0].value)
-            // console.log(currentCardValue);
-            //higherButton(response.cards[0].value);
             console.log(currentCardValue);
         } else if (isHigher === true) {
             if (currentCardValue < cardValues.indexOf(response.cards[0].value)) {
@@ -68,12 +63,7 @@ function showCards(card) {
 function higherButton() {
     let higherBtn = document.querySelector('#higher');
     higherBtn.addEventListener('click', function() {
-        //if they click higher, check the current cards value with the next current card value. 
-        //display the card on the screen
-        //continue play
         drawCard(true);
-        // console.log('higher' + currentCardValue);
-        // console.log('higher' + cardValues.indexOf(higherGuess))
     });
 }
 
@@ -81,12 +71,7 @@ function higherButton() {
 function lowerButton() {
     let lowerBtn = document.querySelector('#lower');
     lowerBtn.addEventListener('click', function() {
-        //if they click higher, check the current cards value with the next current card value. 
-        //display the card on the screen
-        //continue play
         drawCard(false);
-        // console.log('higher' + currentCardValue);
-        // console.log('higher' + cardValues.indexOf(higherGuess))
     });
 }
 
