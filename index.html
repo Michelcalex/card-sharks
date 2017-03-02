@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <title>Card Sharks</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Shojumaru" rel="stylesheet">
     <script src="js/card-sharks.js"></script>
 </head>
 <body>
     <header>
-        <h1>Card Sharks</h1>
+        <div></div>
+        <h1 class="glow">Card Sharks</h1>
     </header>
-    <section>
-        <button id="higher">Higher</button>
-        <button id="lower">Lower</button>
+    <section id="game-btns">
+        <button id="gameplay" type="button"><a class="button" href="#popup">Gameplay</a></button>
+        <button id="higher" type="button">Higher</button>
+        <button id="lower" type="button">Lower</button>
+        <button id="newgame" type="button" onClick="refreshPage()">New Game</button>
+        <div id="popup" class="overlay">
+            <div class="popup">
+                <a class="close" href="#">&times;</a>
+                <p><span>Gameplay:</span> player is given one card to begin with. Player must then determine if the next card drawn will be higher or lower. If player successfully guesses five times in a row, they win! If player guesses incorrectly at any point they lose the match.</p>
+            </div>
+        </div>
     </section>
     <section id="show-playing-cards">
     </section>
