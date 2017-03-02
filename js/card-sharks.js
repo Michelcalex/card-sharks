@@ -33,18 +33,22 @@ function drawCard(isHigher) {
             if(isHigher === true) {
                 if(currentCardValue < cardValues.indexOf(response.cards[0].value)){
                     alert('YOU WIN!');
+                    disablePlay();
                     //console.log('game over - you won!');
                 } else {
                     alert('So close...You Loose! Game over');
                     //console.log('you lost on the last cad');
+                    disablePlay();
                 }
             } else if (isHigher === false) {
                 if(currentCardValue > cardValues.indexOf(response.cards[0].value))
                 alert('YOU WIN!');
+                disablePlay();
                 //console.log('game over - you won');
             } else {
                 alert('So close..You Loose! - Game over!');
                 //console.log('you lost on the last card');
+                disablePlay();
             }
          } else if (currentRoundDrawn !== 4) {
             if(isHigher === true) {
@@ -53,6 +57,7 @@ function drawCard(isHigher) {
                 } else {
                     alert('Game Over');
                     //console.log('you lose BEFORE the last round');
+                    disablePlay();
                 }
             } else if (isHigher === false) {
                 if (currentCardValue > cardValues.indexOf(response.cards[0].value)){
@@ -60,6 +65,7 @@ function drawCard(isHigher) {
                 } else {
                     alert('Game Over');
                     //console.log('game over, you lost before the last round');
+                    disablePlay();
                 }  
             }
          }
@@ -96,15 +102,12 @@ function lowerButton() {
     });
 }
 
+function refreshPage() {
+    window.location.reload();
+}
 
-//FUNCTION TO SHOW BACK OF CARDS
-// function backOfCards() {
-//     for(let i = 0; i < 4; i++) {
-//             if (i < 4) {
-//                 let backOfCard = document.createElement('div');
-//                 backOfCard.classList.add('backCard' + i);
-//                 backOfCard.classList.add('backCard');
-//                 cardContainer.appendChild(backOfCard);
-//             }
-//         }
-// }
+
+function disablePlay() {
+    document.getElementById("higher").disabled = true;
+    document.getElementById("lower").disabled = true;
+}
