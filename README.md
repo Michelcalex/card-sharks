@@ -1,8 +1,15 @@
-# card-sharks
-Remake of Card Sharks game 
+# Card-Sharks
+<em>Card game based on the game show, Card Sharks.</em>
 
-Instructions: 
-1-player is given a playing card 
-2-player guesses whether the next card from the deck would be higher or lower
-3a-If player successfully guesses five times in a row, then they won the match. 
-3b-If player guesses incorrectly at any point, they lose the match. 
+Assignment was to achieve the following:
+<ul><li>Display a card when the page first loads.</li>
+    <li>Give user a "higher" and "lower" button. When they click, a new card should be chosen and displayed along with the player's guess.
+    <ul><li>If the player was correct, they should be able to guess again.</li>
+      <li>If the player was wrong, then they should lose the round.</li></ul>
+    </li> 
+</ul>
+
+
+# Toolkit
+
+Sass and REST API
