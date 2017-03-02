@@ -1,12 +1,146 @@
-h1 {
-    color: green;
+$primary-txt-color: #000;
+$secondary-txt-color: #fff;
+$btn-bkgd-color: #000;
+$btn-hover-color: #9DB6C7;
+$primary-font: 'Dosis', sans-serif;
+$header-font: 'Shojumaru', cursive;
+
+html {
+    background: url('../assets/oceanbkgd.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div {
+            background-image: url('../assets/cards.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 230px;
+            height: 350px;
+            width: 25%;
+        }
+
+        h1 {
+            color: $primary-txt-color;
+            font-size: 4rem;
+            font-family: $header-font;
+            text-transform: uppercase;
+            width: 25%;
+            font-weight: normal;
+        }
+
+        .glow {
+            color: $primary-txt-color;
+            text-shadow:
+                0 1px #808d93,
+                -1px 0 #cdd2d5,
+                -1px 2px #808d93,
+                -2px 1px #cdd2d5,
+                -2px 3px #808d93,
+                -3px 2px #cdd2d5,
+                -3px 4px #808d93,
+                -4px 3px #cdd2d5,
+                -4px 5px #808d93,
+                -5px 4px #cdd2d5,
+                -5px 6px #808d93,
+                -6px 5px #cdd2d5,
+                -6px 7px #808d93,
+                -7px 6px #cdd2d5,
+                -7px 8px #808d93,
+                -8px 7px #cdd2d5;
+        }
+    }
+
+    #game-btns {
+        text-align: center;
+        padding: 2% 0;
+
+        button {
+            font-size: 1rem;
+            font-family: $primary-font;
+            padding: 15px;
+            margin: 1%;
+            width: 105px;
+            text-transform: uppercase;
+            background-color: $btn-bkgd-color;
+            color: $secondary-txt-color;
+            border: 1px solid #243545;
+
+            a {
+                color: $secondary-txt-color;
+                text-decoration: none;
+            }
+        }
+
+        button:hover {
+            background-color: $btn-hover-color;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup {
+            margin: 500px auto;
+            padding: 20px;
+            background: #fff;
+            width: 30%;
+            position: relative;
+            transition: all 5s ease-in-out;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            text-decoration: none;
+            color: $primary-txt-color;
+        }
+
+        p {
+            padding: 10px;
+            font-family: $primary-font;
+
+            span {
+                font-weight: 900;
+            }
+        }
+    }
+
+    #show-playing-cards {
+        margin: 0 auto;
+        width: 75%;
+
+        img {
+            padding: 25px;
+            width: 15%;
+        }
+    }
 }
 
-// .backCard {
-//     background-image: url("../assets/backofcard.png");
-//     background-repeat: no-repeat;
-//     height: 314px;
-//     width: 226px;
-//     display: inline-block;
-//     margin-left: 20px;
-// }
+
+
+
+
+
+
+
+
+
